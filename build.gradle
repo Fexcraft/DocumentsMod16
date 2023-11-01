@@ -20,6 +20,10 @@ version = '1.1.1'
 group = 'net.fexcraft.mod.documents' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DocMod'
 
+sourceSets.main.java.srcDirs += [
+        new File(file('..'), "/Json/src")
+]
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
