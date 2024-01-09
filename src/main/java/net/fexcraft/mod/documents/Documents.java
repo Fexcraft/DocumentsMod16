@@ -9,6 +9,7 @@ import net.fexcraft.mod.documents.data.DocumentItem;
 import net.fexcraft.mod.documents.gui.DocEditorContainer;
 import net.fexcraft.mod.documents.gui.DocViewerContainer;
 import net.fexcraft.mod.documents.gui.UiPacketReceiver;
+import net.fexcraft.mod.documents.model.DocModelLoader;
 import net.fexcraft.mod.documents.packet.GuiPacket;
 import net.fexcraft.mod.documents.packet.SyncPacket;
 import net.minecraft.command.Commands;
@@ -23,6 +24,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -66,6 +68,8 @@ public class Documents {
         CONTAINERS.register(bus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
+        //
+        ModelLoaderRegistry.registerLoader(new ResourceLocation("documents:model"), DocModelLoader.INSTANCE);
     }
 
     private void setup(final FMLCommonSetupEvent event){
