@@ -2,5 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": {
         "layer0": "documents:item/document"
-    }
+    },
+    "loader": "documents:model"
 }
