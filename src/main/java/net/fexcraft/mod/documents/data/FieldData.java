@@ -64,7 +64,9 @@ public class FieldData {
 			return stack.getTag().getString("document:player_name");
 		}
 		else if(type == FieldType.PLAYER_IMG){
-			return DocRegistry.player_img_url.replace("<UUID>", stack.getTag().getString("document:uuid"));
+			return DocRegistry.player_img_url
+				.replace("<UUID>", stack.getTag().getString("document:uuid"))
+				.replace("<NAME>", stack.getTag().getString("document:player_name"));
 		}
 		else if((type == FieldType.DATE || type == FieldType.ISSUED) && val != null){
 			try{
