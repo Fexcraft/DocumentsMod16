@@ -37,7 +37,7 @@ public class FieldData {
 			map.getArray("description").value.forEach(elm -> description.add(elm.string_value()));
 		}
 		autoscale = map.getBoolean("auto_scale", fontscale == 0);
-		color = map.has("font_color") ? Integer.parseInt(map.get("font_color").string_value().replace("#", "")) : null;
+		color = map.has("font_color") ? Integer.parseInt(map.get("font_color").string_value().replace("#", ""), 16) : null;
 		format = map.getString("format", null);
 	}
 
